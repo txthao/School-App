@@ -34,11 +34,11 @@ namespace SchoolApp
                 command = new SQLiteCommand(sql1, sql_con);
                 command.ExecuteNonQuery();
 
-                sql = "create table if not exists LichHoc(Id varchar(20),MaMH varchar(20),NhomMH varchar(20),MaLop varchar(20),ThoigianBD datetime,ThoigianKT datetime)";
+                sql = "create table if not exists LichHoc(Id varchar(20),MaMH varchar(20),NhomMH varchar(20),MaLop varchar(20),ThoigianBD varchar(20),ThoigianKT varchar(20))";
                 command = new SQLiteCommand(sql, sql_con);
                 command.ExecuteNonQuery();
 
-                sql = "create table if not exists CHITIETLH (Id varchar(20),Thu varchar(20),TietBD int,SoTiet int,Phong varchar(20))";
+                sql = "create table if not exists CHITIETLH (Id varchar(20),Thu varchar(20),TietBD varchar(20),SoTiet varchar(20),Phong varchar(20),CBGD varchar(20))";
                 command = new SQLiteCommand(sql, sql_con);
                 command.ExecuteNonQuery();
 
@@ -46,7 +46,7 @@ namespace SchoolApp
                 command = new SQLiteCommand(sql, sql_con);
                 command.ExecuteNonQuery();
 
-                sql = "create table if not exists DiemMon (MaMH varchar(20),DiemKT varchar(20),DiemThi varchar(20),DiemTK10 varchar(20),DiemTChu varchar(5),HocKy int,NamHoc int)";
+                sql = "create table if not exists DiemMon (MaMH varchar(20),DiemKT varchar(20),DiemThi varchar(20),DiemTK10 varchar(20),DiemChu varchar(5),HocKy int,NamHoc int)";
                 command = new SQLiteCommand(sql, sql_con);
                 command.ExecuteNonQuery();
             

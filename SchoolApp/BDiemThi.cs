@@ -60,8 +60,12 @@ namespace SchoolApp
                  dt.SoTCTL = db.Rows[i]["SoTCTL"].ToString();
                  dt.DiemRL =db.Rows[i]["DiemRL"].ToString();
                  dt.LoaiRL = db.Rows[i]["LoaiRL"].ToString();
-                 dt.DiemMons = getDiemMon(dt.NamHoc, dt.Hocky);
+                
                  list.Add(dt);
+             }
+             foreach (DiemThi dt in list)
+             {
+                 dt.DiemMons = getDiemMon(dt.NamHoc, dt.Hocky);
              }
              return list;
         }
@@ -95,6 +99,8 @@ namespace SchoolApp
                 foreach (XmlNode nod in node.ChildNodes[5].ChildNodes)
                 {
                     DiemMon dm = new DiemMon();
+                    dm.Hocky = int.Parse(node.ChildNodes[9].InnerText.Trim()[7].ToString());
+                    dm.NamHoc = int.Parse(node.ChildNodes[9].InnerText.Trim().Substring(17));
                     dm.DiemKT = nod.ChildNodes[0].InnerText;
                     dm.MaMH = nod.ChildNodes[1].InnerText;
                     dm.DiemThi = nod.ChildNodes[6].InnerText;

@@ -24,7 +24,9 @@ namespace SchoolApp
 
         private void btgetLH_Click(object sender, EventArgs e)
         {
-
+            BLichHoc.LoadDataFromSV(txtID.Text.Trim());
+            grid1.DataSource = null;
+            grid1.DataSource = BLichHoc.getAll();
         }
 
         private void btgetLT_Click(object sender, EventArgs e)
@@ -41,6 +43,23 @@ namespace SchoolApp
 
             grid1.DataSource = BDiemThi.getAll();
 
+        }
+
+        private void btChiTiet_Click(object sender, EventArgs e)
+        {
+           /* int k = grid1.CurrentCell.RowIndex;
+            MessageBox.Show(k.ToString());
+            List<LichHoc> list ;
+            list = BLichHoc.getAll();
+            */
+            int k = grid1.CurrentCell.RowIndex;
+            MessageBox.Show(k.ToString());
+            List<DiemThi> list;
+            list = BDiemThi.getAll();
+
+
+            ChiTIetForm f = new ChiTIetForm(list[k]);
+            f.Show();
         }
     }
 }

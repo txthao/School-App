@@ -52,6 +52,12 @@
     <Compile Include="BLichThi.cs" />
     <Compile Include="BMonHoc.cs" />
     <Compile Include="BUser.cs" />
+    <Compile Include="ChiTIetForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChiTIetForm.Designer.cs">
+      <DependentUpon>ChiTIetForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="chiTietLH.cs" />
     <Compile Include="DataProvider.cs" />
     <Compile Include="DiemMon.cs" />
@@ -68,6 +74,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="User.cs" />
+    <EmbeddedResource Include="ChiTIetForm.resx">
+      <DependentUpon>ChiTIetForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

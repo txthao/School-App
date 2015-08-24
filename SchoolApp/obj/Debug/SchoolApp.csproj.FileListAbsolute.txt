@@ -10,3 +10,4 @@ C:\Users\Administrator\Documents\Visual Studio 2012\Projects\SchoolApp\School-Ap
 C:\Users\Administrator\Documents\Visual Studio 2012\Projects\SchoolApp\School-App\SchoolApp\bin\Debug\System.Data.SQLite.xml
 C:\Users\Administrator\Documents\Visual Studio 2012\Projects\SchoolApp\School-App\SchoolApp\obj\Debug\SchoolApp.exe
 C:\Users\Administrator\Documents\Visual Studio 2012\Projects\SchoolApp\School-App\SchoolApp\obj\Debug\SchoolApp.pdb
+C:\Users\Administrator\Documents\Visual Studio 2012\Projects\SchoolApp\School-App\SchoolApp\obj\Debug\SchoolApp.ChiTIetForm.resources
