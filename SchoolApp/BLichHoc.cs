@@ -31,10 +31,11 @@ namespace SchoolApp
         }
         void AddLH(LichHoc lh)
         {
-            string query = "select * from LichHoc where id=" + lh.Id;
+            string query = "select * from LichHoc where id='" + lh.Id+"'";
             if (DataProvider.LoadData(query) == null)
             {
                 string sql = string.Format("Insert into LichHoc values('{0}','{1}','{2}','{3}',{4},{5})", lh.Id, lh.MaMH, lh.NhomMH, lh.MaLop, lh.ThoigianBD, lh.ThoigianKT);
+                insertCT(lh.Chitiet);
                 DataProvider.Insert(sql);
             }
         }

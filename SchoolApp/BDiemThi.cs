@@ -81,7 +81,7 @@ namespace SchoolApp
             list = new List<DiemThi>();
             XmlDocument doc = new XmlDocument();
 
-            doc.Load("http://localhost:56715/api/diemthi");
+            doc.Load("http://localhost:56715/api/diemthi/"+id);
             XmlElement root = doc.DocumentElement;
 
 

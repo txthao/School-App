@@ -53,7 +53,7 @@ namespace SchoolApp
             list = new List<LichThi>();
             XmlDocument doc = new XmlDocument();
            
-            doc.Load("http://localhost:56715/api/lichthi");
+            doc.Load("http://localhost:56715/api/lichthi/"+id);
             XmlElement root = doc.DocumentElement;
 
            

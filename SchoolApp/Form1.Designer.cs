@@ -29,6 +29,11 @@
         private void InitializeComponent()
         {
             this.grid1 = new System.Windows.Forms.DataGridView();
+            this.btgetLH = new System.Windows.Forms.Button();
+            this.txtID = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btgetLT = new System.Windows.Forms.Button();
+            this.btgetDT = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.grid1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -40,23 +45,80 @@
             this.grid1.Size = new System.Drawing.Size(608, 312);
             this.grid1.TabIndex = 0;
             // 
+            // btgetLH
+            // 
+            this.btgetLH.Location = new System.Drawing.Point(325, 421);
+            this.btgetLH.Name = "btgetLH";
+            this.btgetLH.Size = new System.Drawing.Size(75, 23);
+            this.btgetLH.TabIndex = 1;
+            this.btgetLH.Text = "Lịch Học";
+            this.btgetLH.UseVisualStyleBackColor = true;
+            this.btgetLH.Click += new System.EventHandler(this.btgetLH_Click);
+            // 
+            // txtID
+            // 
+            this.txtID.Location = new System.Drawing.Point(187, 421);
+            this.txtID.Name = "txtID";
+            this.txtID.Size = new System.Drawing.Size(116, 20);
+            this.txtID.TabIndex = 2;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(106, 426);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(59, 13);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Nhập MSV";
+            // 
+            // btgetLT
+            // 
+            this.btgetLT.Location = new System.Drawing.Point(421, 421);
+            this.btgetLT.Name = "btgetLT";
+            this.btgetLT.Size = new System.Drawing.Size(75, 23);
+            this.btgetLT.TabIndex = 4;
+            this.btgetLT.Text = "Lịch Thi";
+            this.btgetLT.UseVisualStyleBackColor = true;
+            this.btgetLT.Click += new System.EventHandler(this.btgetLT_Click);
+            // 
+            // btgetDT
+            // 
+            this.btgetDT.Location = new System.Drawing.Point(521, 421);
+            this.btgetDT.Name = "btgetDT";
+            this.btgetDT.Size = new System.Drawing.Size(75, 23);
+            this.btgetDT.TabIndex = 5;
+            this.btgetDT.Text = "Điểm Thi";
+            this.btgetDT.UseVisualStyleBackColor = true;
+            this.btgetDT.Click += new System.EventHandler(this.btgetDT_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(770, 427);
+            this.ClientSize = new System.Drawing.Size(843, 478);
+            this.Controls.Add(this.btgetDT);
+            this.Controls.Add(this.btgetLT);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.txtID);
+            this.Controls.Add(this.btgetLH);
             this.Controls.Add(this.grid1);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.grid1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.DataGridView grid1;
+        private System.Windows.Forms.Button btgetLH;
+        private System.Windows.Forms.TextBox txtID;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btgetLT;
+        private System.Windows.Forms.Button btgetDT;
     }
 }
 
