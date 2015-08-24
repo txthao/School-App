@@ -24,56 +24,62 @@ namespace SchoolApp
             set { namhoc = value; }
         }
 
-        float diemTB10;
+       string diemTB10;
 
-        public float DiemTB10
+       public string DiemTB10
         {
             get { return diemTB10; }
             set { diemTB10 = value; }
         }
-        float diemTB4;
+       string diemTB4;
 
-        public float DiemTB4
+       public string DiemTB4
         {
             get { return diemTB4; }
             set { diemTB4 = value; }
         }
-        float diemTBTL10;
+       string diemTBTL10;
 
-        public float DiemTBTL10
+        public string DiemTBTL10
         {
             get { return diemTBTL10; }
             set { diemTBTL10 = value; }
         }
-        float diemTBTL4;
+        string diemTBTL4;
 
-        public float DiemTBTL4
+        public string DiemTBTL4
         {
             get { return diemTBTL4; }
             set { diemTBTL4 = value; }
         }
-        int soTCDat;
+        string soTCDat;
 
-        public int SoTCDat
+        public string SoTCDat
         {
             get { return soTCDat; }
             set { soTCDat = value; }
         }
-        int soTCTL;
+        string soTCTL;
 
-        public int SoTCTL
+        public string SoTCTL
         {
             get { return soTCTL; }
             set { soTCTL = value; }
         }
-        int diemRL;
+        string diemRL;
 
-        public int DiemRL
+        public string DiemRL
         {
             get { return diemRL; }
             set { diemRL = value; }
         }
+        string loaiRL;
 
+        public string LoaiRL
+        {
+            get { return loaiRL; }
+            set { loaiRL = value; }
+        }
         List<DiemMon> diemmons;
 
         internal List<DiemMon> DiemMons

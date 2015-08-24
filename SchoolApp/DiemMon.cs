@@ -15,23 +15,23 @@ namespace SchoolApp
             get { return maMH; }
             set { maMH = value; }
         }
-        float diemKT;
+        string diemKT;
 
-        public float DiemKT
+        public string DiemKT
         {
             get { return diemKT; }
             set { diemKT = value; }
         }
-        float diemThi;
+        string diemThi;
 
-        public float DiemThi
+        public string DiemThi
         {
             get { return diemThi; }
             set { diemThi = value; }
         }
-        float diemTK10;
+        string diemTK10;
 
-        public float DiemTK10
+        public string DiemTK10
         {
             get { return diemTK10; }
             set { diemTK10 = value; }

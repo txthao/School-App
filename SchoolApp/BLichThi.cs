@@ -14,7 +14,7 @@ namespace SchoolApp
     class BLichThi
     {
        public static List<LichThi> list;
-        List<LichThi> getAll()
+       public static List<LichThi> getAll()
         {
             list = new List<LichThi>();
             string query = "select * from LichThi";
@@ -26,7 +26,7 @@ namespace SchoolApp
                 lt.GhepThi = db.Rows[i]["GhepThi"].ToString();
                 lt.ToThi = db.Rows[i]["ToThi"].ToString();
                 lt.SoLuong = int.Parse(db.Rows[i]["SoLuong"].ToString());
-                lt.NgayThi = db.Rows[i]["MaMH"].ToString();
+                lt.NgayThi = db.Rows[i]["NgayThi"].ToString();
                 lt.GioBD = db.Rows[i]["GioBD"].ToString();
                 lt.SoPhut = int.Parse(db.Rows[i]["SoPhut"].ToString());
                 lt.PhongThi = db.Rows[i]["PhongThi"].ToString();
@@ -34,10 +34,12 @@ namespace SchoolApp
             }
             return list;
         }
-        void AddLT(LichThi lt)
+        static void AddLT(LichThi lt)
         {
-            string query = "select * from LichThi where MaMH="+lt.MaMH+",NgayThi="+lt.NgayThi;
-            if (DataProvider.LoadData(query) == null)
+            
+            string query = string.Format("select * from LichThi where MaMH='{0}' and NgayThi='{1}'",lt.MaMH,lt.NgayThi);
+            
+            if (DataProvider.LoadData(query).Rows.Count==0)
             {
                 string sql = string.Format("Insert into LichThi values('{0}','{1}','{2}',{3},'{4}','{5}',{6},'{7}')", lt.MaMH, lt.GhepThi, lt.ToThi, lt.SoLuong, lt.NgayThi, lt.GioBD, lt.SoPhut, lt.PhongThi);
                 DataProvider.Insert(sql);
@@ -55,7 +57,7 @@ namespace SchoolApp
             XmlElement root = doc.DocumentElement;
 
            
-           
+            
 
             foreach (XmlNode node in root.ChildNodes)
             {
@@ -69,6 +71,7 @@ namespace SchoolApp
                 lt.SoPhut = int.Parse(node.ChildNodes[7].InnerText.Trim());
                 lt.ToThi = node.ChildNodes[9].InnerText.Trim();
                 list.Add(lt);
+                AddLT(lt);
             }
            
             return list;

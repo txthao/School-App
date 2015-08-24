@@ -19,7 +19,9 @@ namespace SchoolApp
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            grid1.DataSource = BLichThi.LoadDataFromSV("1");
+             BLichThi.LoadDataFromSV("1");
+             BDiemThi.LoadDataFromSV("1");
+             grid1.DataSource = BDiemThi.getAll();
         }
     }
 }
