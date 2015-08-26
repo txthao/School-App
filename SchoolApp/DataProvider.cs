@@ -22,11 +22,15 @@ namespace SchoolApp
                    ("Data Source=SchoolDB.sqlite;Version=3;New=True;Compress=True;");
                 sql_con.Open();
 
-                string sql = "create table if not exists MonHoc (MaMH varchar(20), TenMH varchar(20), SoTC int, TileThi int)";
+                string sql = "create table if not exists MonHoc (MaMH varchar(20), TenMH varchar(50), SoTC int, TileThi int)";
                 SQLiteCommand command = new SQLiteCommand(sql, sql_con);
                 command.ExecuteNonQuery();
 
-                sql = "create table if not exists User (Id varchar(20), HoTen varchar(20), Password varchar(20))";
+                sql = "create table if not exists HocPhi (MaMH varchar(20), HocPhi varchar(50), MienGiam varchar(20), NamHoc int, HocKy int)";
+                command = new SQLiteCommand(sql, sql_con);
+                command.ExecuteNonQuery();
+
+                sql = "create table if not exists User (Id varchar(20), HoTen varchar(50), Password varchar(20))";
                 command = new SQLiteCommand(sql, sql_con);
                 command.ExecuteNonQuery();
 
@@ -72,7 +76,7 @@ namespace SchoolApp
             return DT;
         }
 
-        private static void ExecuteQuery(string txtQuery)
+        public static void ExecuteQuery(string txtQuery)
         {
             SetConnection();
            

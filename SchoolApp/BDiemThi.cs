@@ -99,15 +99,19 @@ namespace SchoolApp
                 foreach (XmlNode nod in node.ChildNodes[5].ChildNodes)
                 {
                     DiemMon dm = new DiemMon();
+                    MonHoc mh = new MonHoc();
                     dm.Hocky = int.Parse(node.ChildNodes[9].InnerText.Trim()[7].ToString());
                     dm.NamHoc = int.Parse(node.ChildNodes[9].InnerText.Trim().Substring(17));
                     dm.DiemKT = nod.ChildNodes[0].InnerText;
                     dm.MaMH = nod.ChildNodes[1].InnerText;
+                    mh.MaMH = dm.MaMH;
+                    mh.TileThi = int.Parse( nod.ChildNodes[3].InnerText.ToString());
                     dm.DiemThi = nod.ChildNodes[6].InnerText;
                     dm.DiemTK10 = nod.ChildNodes[7].InnerText;
                     dm.DiemChu = nod.ChildNodes[8].InnerText;
                     lt.DiemMons.Add(dm);
                     AddDiemMon(dm);
+                    BMonHoc.UpdateMH(mh);
                 }
                 lt.DiemTB4 = node.ChildNodes[1].InnerText.Trim();
                 lt.DiemTB10 = node.ChildNodes[2].InnerText.Trim();
