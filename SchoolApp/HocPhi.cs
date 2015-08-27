@@ -17,7 +17,7 @@ namespace SchoolApp
         }
         string hocPhi;
 
-        public string HocPhi
+        public string HocPhi1
         {
             get { return hocPhi; }
             set { hocPhi = value; }

@@ -21,7 +21,7 @@ namespace SchoolApp
                 HocPhi hp = new HocPhi();
                 hp.MaMH = db.Rows[i]["MaMH"].ToString();
                
-                hp.HocPhi = db.Rows[i]["HocPhi"].ToString();
+                hp.HocPhi1 = db.Rows[i]["HocPhi"].ToString();
                 hp.MienGiam = db.Rows[i]["MienGiam"].ToString();
                 hp.NamHoc = int.Parse(db.Rows[i]["NamHoc"].ToString());
                 hp.HocKy = int.Parse(db.Rows[i]["HocKy"].ToString());
@@ -39,7 +39,7 @@ namespace SchoolApp
             {
                 try
                 {
-                    string sql = string.Format("Insert into HocPhi values('{0}','{1}','{2}',{3},{4})", hp.MaMH, hp.HocPhi, hp.MienGiam, hp.NamHoc, hp.HocKy);
+                    string sql = string.Format("Insert into HocPhi values('{0}','{1}','{2}',{3},{4})", hp.MaMH, hp.HocPhi1, hp.MienGiam, hp.NamHoc, hp.HocKy);
                     DataProvider.Insert(sql);
                 }
                 catch
