@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BDiemThi.cs" />
+    <Compile Include="BHocPhi.cs" />
     <Compile Include="BLichHoc.cs" />
     <Compile Include="BLichThi.cs" />
     <Compile Include="BMonHoc.cs" />
@@ -68,6 +69,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="HocPhi.cs" />
     <Compile Include="LichHoc.cs" />
     <Compile Include="LichThi.cs" />
     <Compile Include="MonHoc.cs" />

@@ -35,6 +35,7 @@
             this.btgetLT = new System.Windows.Forms.Button();
             this.btgetDT = new System.Windows.Forms.Button();
             this.btChiTiet = new System.Windows.Forms.Button();
+            this.lbName = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.grid1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -102,11 +103,22 @@
             this.btChiTiet.UseVisualStyleBackColor = true;
             this.btChiTiet.Click += new System.EventHandler(this.btChiTiet_Click);
             // 
+            // lbName
+            // 
+            this.lbName.AutoSize = true;
+            this.lbName.Font = new System.Drawing.Font("Segoe Script", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbName.Location = new System.Drawing.Point(96, 33);
+            this.lbName.Name = "lbName";
+            this.lbName.Size = new System.Drawing.Size(76, 30);
+            this.lbName.TabIndex = 7;
+            this.lbName.Text = "label2";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(843, 478);
+            this.Controls.Add(this.lbName);
             this.Controls.Add(this.btChiTiet);
             this.Controls.Add(this.btgetDT);
             this.Controls.Add(this.btgetLT);
@@ -132,6 +144,7 @@
         private System.Windows.Forms.Button btgetLT;
         private System.Windows.Forms.Button btgetDT;
         private System.Windows.Forms.Button btChiTiet;
+        private System.Windows.Forms.Label lbName;
     }
 }
 

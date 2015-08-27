@@ -38,6 +38,20 @@ namespace SchoolApp
             }
             return list;
         }
+
+        public static int getID()
+        {
+
+            string query = "select  * from LichHoc ORDER BY Id DESC LIMIT 1";
+
+            DataTable db = DataProvider.LoadData(query);
+            if (db.Rows.Count == 0)
+                return 1;
+            int k = int.Parse(db.Rows[0][0].ToString());
+            return k+1;
+        }
+
+
         static void AddLH(LichHoc lh)
         {
             string query = "select * from LichHoc where MaMH='" + lh.MaMH+"'";
@@ -85,15 +99,19 @@ namespace SchoolApp
 
 
 
-            int k = 0;
+            int k = getID();
             foreach (XmlNode node in root.ChildNodes)
             {
                 LichHoc lh = new LichHoc();
+                MonHoc mh = new MonHoc();
                 lh.Id = k.ToString() ;
                 lh.MaMH = node.ChildNodes[2].InnerText.Trim();
                 lh.MaLop = node.ChildNodes[1].InnerText.Trim();
                 lh.NhomMH = node.ChildNodes[3].InnerText.Trim();
-
+                mh.MaMH = lh.MaMH;
+                mh.TenMH = node.ChildNodes[7].InnerText.Trim();
+                mh.SoTC=int.Parse(node.ChildNodes[5].InnerText.Trim());
+                mh.TileThi = 0;
                 lh.ThoigianBD = node.ChildNodes[10].InnerText.Trim().Substring(0, 10);
                 lh.ThoigianKT = node.ChildNodes[10].InnerText.Trim().Substring(12);
                 List<chiTietLH> listct = new List<chiTietLH>();
@@ -104,16 +122,19 @@ namespace SchoolApp
                 {
                     chiTietLH ct = new chiTietLH();
                     ct.Id = k.ToString();
-                    ct.CBGD = node.ChildNodes[0].InnerText.Trim().Substring(i * five, five);
-                    ct.Phong = node.ChildNodes[4].InnerText.Trim().Substring(i * five, five);
+                    string magv = node.ChildNodes[0].InnerText.Trim().Substring(i * five, five);
+                    ct.CBGD = BUser.getUser(magv).Hoten;
+                    ct.Phong = node.ChildNodes[4].InnerText.Trim().Substring(i * 6, 6);
                     ct.Thu = node.ChildNodes[8].InnerText.Trim().Substring(i * one, one);
                     ct.TietBatDau = node.ChildNodes[9].InnerText.Trim().Substring(i * one, one);//tiet bat dau = 10
-                    ct.SoTiet = node.ChildNodes[6].InnerText.Trim().Substring(1);
+
+                    ct.SoTiet = node.ChildNodes[6].InnerText.Trim()[i].ToString();
                     listct.Add(ct);
                 }
                 lh.Chitiet = listct;
                 list.Add(lh);
                 AddLH(lh);
+                BMonHoc.AddMon(mh);
                 k++;
             }
 
