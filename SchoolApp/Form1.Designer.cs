@@ -36,6 +36,7 @@
             this.btgetDT = new System.Windows.Forms.Button();
             this.btChiTiet = new System.Windows.Forms.Button();
             this.lbName = new System.Windows.Forms.Label();
+            this.btHocPhi = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.grid1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -113,11 +114,22 @@
             this.lbName.TabIndex = 7;
             this.lbName.Text = "label2";
             // 
+            // btHocPhi
+            // 
+            this.btHocPhi.Location = new System.Drawing.Point(632, 421);
+            this.btHocPhi.Name = "btHocPhi";
+            this.btHocPhi.Size = new System.Drawing.Size(75, 23);
+            this.btHocPhi.TabIndex = 8;
+            this.btHocPhi.Text = "Học Phí";
+            this.btHocPhi.UseVisualStyleBackColor = true;
+            this.btHocPhi.Click += new System.EventHandler(this.btHocPhi_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(843, 478);
+            this.Controls.Add(this.btHocPhi);
             this.Controls.Add(this.lbName);
             this.Controls.Add(this.btChiTiet);
             this.Controls.Add(this.btgetDT);
@@ -145,6 +157,7 @@
         private System.Windows.Forms.Button btgetDT;
         private System.Windows.Forms.Button btChiTiet;
         private System.Windows.Forms.Label lbName;
+        private System.Windows.Forms.Button btHocPhi;
     }
 }
 

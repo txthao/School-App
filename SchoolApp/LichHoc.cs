@@ -22,12 +22,12 @@ namespace SchoolApp
             get { return chitiet; }
             set { chitiet = value; }
         }
-        string maMH;
+        MonHoc monHoc;
 
-        public string MaMH
+        internal MonHoc MonHoc
         {
-            get { return maMH; }
-            set { maMH = value; }
+            get { return monHoc; }
+            set { monHoc = value; }
         }
 
         string nhomMH;

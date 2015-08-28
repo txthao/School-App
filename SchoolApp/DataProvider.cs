@@ -26,9 +26,14 @@ namespace SchoolApp
                 SQLiteCommand command = new SQLiteCommand(sql, sql_con);
                 command.ExecuteNonQuery();
 
-                sql = "create table if not exists HocPhi (MaMH varchar(20), HocPhi varchar(50), MienGiam varchar(20), NamHoc int, HocKy int)";
+                sql = "create table if not exists CTHocPhi (MaMH varchar(20), MaNhom varchar(5), HocPhi varchar(50), MienGiam varchar(20), PhaiDong varchar(20), NamHoc int, HocKy int)";
                 command = new SQLiteCommand(sql, sql_con);
                 command.ExecuteNonQuery();
+
+                sql = "create table if not exists HocPhi (TongSoTC varchar(20), TongTien varchar(5), TienDongTTLD varchar(20), TienDaDong varchar(20), TienConNo varchar(20), NamHoc int, HocKy int)";
+                command = new SQLiteCommand(sql, sql_con);
+                command.ExecuteNonQuery();
+                
 
                 sql = "create table if not exists User (Id varchar(20), HoTen varchar(50), Password varchar(20))";
                 command = new SQLiteCommand(sql, sql_con);

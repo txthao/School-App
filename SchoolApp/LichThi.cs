@@ -8,12 +8,12 @@ namespace SchoolApp
 {
     class LichThi
     {
-        string maMH;
+        MonHoc monHoc;
 
-        public string MaMH
+        internal MonHoc MonHoc
         {
-            get { return maMH; }
-            set { maMH = value; }
+            get { return monHoc; }
+            set { monHoc = value; }
         }
         string ghepThi;
 

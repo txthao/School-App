@@ -15,11 +15,11 @@ namespace SchoolApp
         public ChiTIetForm(Object t)
         {
             InitializeComponent();
-            LichHoc lh = (LichHoc)t;
-            dataGridView1.DataSource = lh.Chitiet;
+           // LichHoc lh = (LichHoc)t;
+            //dataGridView1.DataSource = lh.Chitiet;
 
-          //  DiemThi dt = (DiemThi)t;
-           // dataGridView1.DataSource = dt.DiemMons;
+            DiemThi dt = (DiemThi)t;
+            dataGridView1.DataSource = dt.DiemMons;
 
 
         }

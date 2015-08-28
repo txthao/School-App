@@ -22,7 +22,8 @@ namespace SchoolApp
             for (int i = 0; i < db.Rows.Count; i++)
             {
                 LichThi lt = new LichThi();
-                lt.MaMH = db.Rows[i]["MaMH"].ToString();
+                lt.MonHoc = new MonHoc();
+                lt.MonHoc.MaMH = db.Rows[i]["MaMH"].ToString();
                 lt.GhepThi = db.Rows[i]["GhepThi"].ToString();
                 lt.ToThi = db.Rows[i]["ToThi"].ToString();
                 lt.SoLuong = int.Parse(db.Rows[i]["SoLuong"].ToString());
@@ -32,16 +33,20 @@ namespace SchoolApp
                 lt.PhongThi = db.Rows[i]["PhongThi"].ToString();
                 list.Add(lt);
             }
+            foreach (LichThi lt in list)
+            {
+                lt.MonHoc = BMonHoc.getByMaMH(lt.MonHoc.MaMH);
+            }
             return list;
         }
         static void AddLT(LichThi lt)
         {
             
-            string query = string.Format("select * from LichThi where MaMH='{0}' and NgayThi='{1}'",lt.MaMH,lt.NgayThi);
+            string query = string.Format("select * from LichThi where MaMH='{0}' and NgayThi='{1}'",lt.MonHoc.MaMH,lt.NgayThi);
             
             if (DataProvider.LoadData(query).Rows.Count==0)
             {
-                string sql = string.Format("Insert into LichThi values('{0}','{1}','{2}',{3},'{4}','{5}',{6},'{7}')", lt.MaMH, lt.GhepThi, lt.ToThi, lt.SoLuong, lt.NgayThi, lt.GioBD, lt.SoPhut, lt.PhongThi);
+                string sql = string.Format("Insert into LichThi values('{0}','{1}','{2}',{3},'{4}','{5}',{6},'{7}')", lt.MonHoc.MaMH, lt.GhepThi, lt.ToThi, lt.SoLuong, lt.NgayThi, lt.GioBD, lt.SoPhut, lt.PhongThi);
                 DataProvider.Insert(sql);
             
             }
@@ -64,13 +69,16 @@ namespace SchoolApp
                 LichThi lt = new LichThi();
                 lt.GhepThi = node.ChildNodes[0].InnerText.Trim();
                 lt.GioBD = node.ChildNodes[1].InnerText.Trim();
-                lt.MaMH = node.ChildNodes[3].InnerText.Trim();
+                lt.MonHoc = new MonHoc();
+                lt.MonHoc.MaMH = node.ChildNodes[3].InnerText.Trim();
+                lt.MonHoc.TenMH=node.ChildNodes[8].InnerText.Trim();
                 lt.NgayThi = node.ChildNodes[4].InnerText.Trim();
                 lt.PhongThi = node.ChildNodes[5].InnerText.Trim();
                 lt.SoLuong = int.Parse(node.ChildNodes[6].InnerText.Trim());
                 lt.SoPhut = int.Parse(node.ChildNodes[7].InnerText.Trim());
                 lt.ToThi = node.ChildNodes[9].InnerText.Trim();
                 list.Add(lt);
+                BMonHoc.AddMon(lt.MonHoc);
                 AddLT(lt);
             }
            
