@@ -8,34 +8,6 @@ namespace SchoolApp
 {
     class HocPhi
     {
-        string maMH;
-
-        public string MaMH
-        {
-            get { return maMH; }
-            set { maMH = value; }
-        }
-        string hocPhi;
-
-        public string HocPhi1
-        {
-            get { return hocPhi; }
-            set { hocPhi = value; }
-        }
-        string mienGiam;
-
-        public string MienGiam
-        {
-            get { return mienGiam; }
-            set { mienGiam = value; }
-        }
-        string ghiChu;
-
-        public string GhiChu
-        {
-            get { return ghiChu; }
-            set { ghiChu = value; }
-        }
         int hocKy;
 
         public int HocKy
@@ -49,6 +21,56 @@ namespace SchoolApp
         {
             get { return namHoc; }
             set { namHoc = value; }
+        }
+
+       
+
+        private string tongSoTC;
+
+        public string TongSoTC
+        {
+            get { return tongSoTC; }
+            set { tongSoTC = value; }
+        }
+
+        private string tongSoTien;
+
+        public string TongSoTien
+        {
+            get { return tongSoTien; }
+            set { tongSoTien = value; }
+        }
+
+        private string tienDongTTLD;
+
+        public string TienDongTTLD
+        {
+            get { return tienDongTTLD; }
+            set { tienDongTTLD = value; }
+        }
+
+        private string tienDaDong;
+
+        public string TienDaDong
+        {
+            get { return tienDaDong; }
+            set { tienDaDong = value; }
+        }
+
+        private string tienConNo;
+
+        public string TienConNo
+        {
+            get { return tienConNo; }
+            set { tienConNo = value; }
+        }
+
+        private List<CTHocPhi> listCTHP;
+
+        public List<CTHocPhi> ListCTHP
+        {
+            get { return listCTHP; }
+            set { listCTHP = value; }
         }
     }
 }

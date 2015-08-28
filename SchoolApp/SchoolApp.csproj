@@ -60,6 +60,7 @@
       <DependentUpon>ChiTIetForm.cs</DependentUpon>
     </Compile>
     <Compile Include="chiTietLH.cs" />
+    <Compile Include="CTHocPhi.cs" />
     <Compile Include="DataProvider.cs" />
     <Compile Include="DiemMon.cs" />
     <Compile Include="DiemThi.cs" />

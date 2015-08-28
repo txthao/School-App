@@ -8,13 +8,15 @@ namespace SchoolApp
 {
     class DiemMon
     {
-        string maMH;
+        MonHoc mh;
 
-        public string MaMH
+        internal MonHoc MonHoc
         {
-            get { return maMH; }
-            set { maMH = value; }
+            get { return mh; }
+            set { mh = value; }
         }
+
+        
         string diemKT;
 
         public string DiemKT

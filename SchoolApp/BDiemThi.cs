@@ -13,10 +13,10 @@ namespace SchoolApp
         static List<DiemThi> list;
         static void AddDiemMon(DiemMon dm)
         {
-            string query = string.Format("select * from DiemMon where MaMH='{0}' and NamHoc={1} and HocKy={2}", dm.MaMH, dm.NamHoc, dm.Hocky);
+            string query = string.Format("select * from DiemMon where MaMH='{0}' and NamHoc={1} and HocKy={2}", dm.MonHoc.MaMH, dm.NamHoc, dm.Hocky);
             if (DataProvider.LoadData(query).Rows.Count==0)
             {
-                string sql = string.Format("Insert into DiemMon values('{0}','{1}','{2}','{3}','{4}',{5},{6})", dm.MaMH, dm.DiemKT,dm.DiemThi,dm.DiemTK10,dm.DiemChu, dm.Hocky, dm.NamHoc);
+                string sql = string.Format("Insert into DiemMon values('{0}','{1}','{2}','{3}','{4}',{5},{6})", dm.MonHoc.MaMH, dm.DiemKT,dm.DiemThi,dm.DiemTK10,dm.DiemChu, dm.Hocky, dm.NamHoc);
                 DataProvider.Insert(sql);
             }
         }
@@ -30,15 +30,19 @@ namespace SchoolApp
                 DiemMon dm = new DiemMon();
                 dm.Hocky = hocky;
                 dm.NamHoc = namhoc;
-                dm.MaMH = db.Rows[i]["MaMH"].ToString();
+                
                 dm.DiemKT=db.Rows[i]["DiemKT"].ToString();
                 dm.DiemThi = db.Rows[i]["DiemThi"].ToString();
                 dm.DiemTK10 = db.Rows[i]["DiemTK10"].ToString();
                 dm.DiemChu = db.Rows[i]["DiemChu"].ToString();
+                dm.MonHoc.MaMH = db.Rows[i]["MaMH"].ToString();
 
                 listct.Add(dm);
             }
-
+            foreach (DiemMon dm in listct)
+            {
+                dm.MonHoc = BMonHoc.getByMaMH(dm.MonHoc.MaMH);
+            }
             return listct;
         }
 
@@ -103,14 +107,18 @@ namespace SchoolApp
                     dm.Hocky = int.Parse(node.ChildNodes[9].InnerText.Trim()[7].ToString());
                     dm.NamHoc = int.Parse(node.ChildNodes[9].InnerText.Trim().Substring(17));
                     dm.DiemKT = nod.ChildNodes[0].InnerText;
-                    dm.MaMH = nod.ChildNodes[1].InnerText;
-                    mh.MaMH = dm.MaMH;
+                    dm.MonHoc = new MonHoc();
+                    dm.MonHoc.MaMH = nod.ChildNodes[1].InnerText;
+                    mh.MaMH = dm.MonHoc.MaMH;
+                    mh.TenMH = nod.ChildNodes[5].InnerText;
+                    mh.SoTC = int.Parse(nod.ChildNodes[4].InnerText);
                     mh.TileThi = int.Parse( nod.ChildNodes[3].InnerText.ToString());
                     dm.DiemThi = nod.ChildNodes[6].InnerText;
                     dm.DiemTK10 = nod.ChildNodes[7].InnerText;
                     dm.DiemChu = nod.ChildNodes[8].InnerText;
                     lt.DiemMons.Add(dm);
                     AddDiemMon(dm);
+                    BMonHoc.AddMon(mh);
                     BMonHoc.UpdateMH(mh);
                 }
                 lt.DiemTB4 = node.ChildNodes[1].InnerText.Trim();

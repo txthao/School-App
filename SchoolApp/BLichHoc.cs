@@ -23,18 +23,20 @@ namespace SchoolApp
             {
                 LichHoc mh = new LichHoc();
                 mh.Id = db.Rows[i]["Id"].ToString();
-                mh.MaMH = db.Rows[i]["MaMH"].ToString();
+                
                 mh.MaLop = db.Rows[i]["MaLop"].ToString();
                 mh.ThoigianBD = db.Rows[i]["ThoigianBD"].ToString();
                 mh.ThoigianKT = db.Rows[i]["ThoigianKT"].ToString();
                 mh.NhomMH = db.Rows[i]["NhomMH"].ToString();
-              
+                mh.MonHoc = new MonHoc();
+                mh.MonHoc.MaMH = db.Rows[i]["MaMH"].ToString();
                
                 list.Add(mh);
             }
             foreach (LichHoc lh in list)
             {
                 lh.Chitiet = getChiTiets(lh.Id);
+                lh.MonHoc = BMonHoc.getByMaMH(lh.MonHoc.MaMH);
             }
             return list;
         }
@@ -54,10 +56,10 @@ namespace SchoolApp
 
         static void AddLH(LichHoc lh)
         {
-            string query = "select * from LichHoc where MaMH='" + lh.MaMH+"'";
+            string query = "select * from LichHoc where MaMH='" + lh.MonHoc.MaMH+"'";
             if (DataProvider.LoadData(query).Rows.Count==0)
             {
-                string sql = string.Format("Insert into LichHoc values('{0}','{1}','{2}','{3}','{4}','{5}')", lh.Id, lh.MaMH, lh.NhomMH, lh.MaLop, lh.ThoigianBD, lh.ThoigianKT);
+                string sql = string.Format("Insert into LichHoc values('{0}','{1}','{2}','{3}','{4}','{5}')", lh.Id, lh.MonHoc.MaMH, lh.NhomMH, lh.MaLop, lh.ThoigianBD, lh.ThoigianKT);
                 DataProvider.Insert(sql);
                 insertCT(lh.Chitiet);
             }
@@ -105,10 +107,11 @@ namespace SchoolApp
                 LichHoc lh = new LichHoc();
                 MonHoc mh = new MonHoc();
                 lh.Id = k.ToString() ;
-                lh.MaMH = node.ChildNodes[2].InnerText.Trim();
+                lh.MonHoc = new MonHoc();
+                lh.MonHoc.MaMH = node.ChildNodes[2].InnerText.Trim();
                 lh.MaLop = node.ChildNodes[1].InnerText.Trim();
                 lh.NhomMH = node.ChildNodes[3].InnerText.Trim();
-                mh.MaMH = lh.MaMH;
+                mh.MaMH = lh.MonHoc.MaMH;
                 mh.TenMH = node.ChildNodes[7].InnerText.Trim();
                 mh.SoTC=int.Parse(node.ChildNodes[5].InnerText.Trim());
                 mh.TileThi = 0;

@@ -51,20 +51,28 @@ namespace SchoolApp
 
         private void btChiTiet_Click(object sender, EventArgs e)
         {
-            int k = grid1.CurrentCell.RowIndex;
-            MessageBox.Show(k.ToString());
-            List<LichHoc> list ;
-            list = BLichHoc.getAll();
+            /* int k = grid1.CurrentCell.RowIndex;
+           MessageBox.Show(k.ToString());
+           List<LichHoc> list ;
+           list = BLichHoc.getAll();
+            */
             
-            /*
             int k = grid1.CurrentCell.RowIndex;
             MessageBox.Show(k.ToString());
             List<DiemThi> list;
             list = BDiemThi.getAll();
 
-            */
+          
             ChiTIetForm f = new ChiTIetForm(list[k]);
             f.Show();
+        }
+
+        private void btHocPhi_Click(object sender, EventArgs e)
+        {
+            grid1.DataSource = null;
+            List<HocPhi> l = new List<HocPhi>();
+            l.Add(BHocPhi.LoadDataFromSV("1","2"));
+            grid1.DataSource = l;
         }
     }
 }
